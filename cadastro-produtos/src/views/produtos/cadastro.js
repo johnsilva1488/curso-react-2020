@@ -70,75 +70,76 @@ class CadastroProduto extends React.Component {
     render() {
         return (
             <Card header={this.state.atualizando ? 'Atualização de Produto ' : 'Cadastro de Produto'}>
-                    <form id ="frmProduto" onSubmit={this.onSubmit}>
-                        {this.state.sucesso &&
-                            <div className="alert alert-dismissible alert-success">
-                                <button type="button" className="close" data-dismiss="alert">&times;</button>
-                                <strong>Bem Feito!</strong> Cadastro realizado com sucesso!
+                <form id="frmProduto" onSubmit={this.onSubmit}>
+                    {this.state.sucesso &&
+                        <div className="alert alert-dismissible alert-success">
+                            <button type="button" className="close" data-dismiss="alert">&times;</button>
+                            <strong>Bem Feito!</strong> Cadastro realizado com sucesso!
                         </div>
 
-                        }
+                    }
 
-                        {this.state.errors.length > 0 &&
-                            this.state.errors.map(msg => {
-                                return (
-                                    <div className="alert alert-dismissible alert-danger">
-                                        <button type="button" className="close" data-dismiss="alert">&times;</button>
-                                        <strong>Erro!</strong> {msg}
-                                    </div>
+                    {this.state.errors.length > 0 &&
+                        this.state.errors.map(msg => {
 
-                                )
-                            })
-
-                        }
-                        <div className="row">
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                    <label>Nome:*</label>
-                                    <input type="text" name="nome" onChange={this.onChange} value={this.state.nome} className="form-control" />
+                            return (
+                                <div className="alert alert-dismissible alert-danger">
+                                    <button type="button" className="close" data-dismiss="alert">&times;</button>
+                                    <strong>Erro!</strong> {msg}
                                 </div>
-                            </div>
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                    <label>SKU:*</label>
-                                    <input type="text" name="sku" disabled={this.state.atualizando} onChange={this.onChange} value={this.state.sku} className="form-control" />
-                                </div>
+
+                            )
+                        })
+
+                    }
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="form-group">
+                                <label>Nome:*</label>
+                                <input type="text" name="nome" onChange={this.onChange} value={this.state.nome} className="form-control" />
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                    <label>Descrição:</label>
-                                    <textarea name="descricao" onChange={this.onChange} value={this.state.descricao} className="form-control" />
-                                </div>
+                        <div className="col-md-6">
+                            <div className="form-group">
+                                <label>SKU:*</label>
+                                <input type="text" name="sku" disabled={this.state.atualizando} onChange={this.onChange} value={this.state.sku} className="form-control" />
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                    <label>Preço:*</label>
-                                    <input type="text" name="preco" onChange={this.onChange} value={this.state.preco} className="form-control" />
-                                </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="form-group">
+                                <label>Descrição:</label>
+                                <textarea name="descricao" onChange={this.onChange} value={this.state.descricao} className="form-control" />
                             </div>
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                    <label>Fornecedor:*</label>
-                                    <input type="text" name="fornecedor" onChange={this.onChange} value={this.state.fornecedor} className="form-control" />
-                                </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="form-group">
+                                <label>Preço:*</label>
+                                <input type="text" name="preco" onChange={this.onChange} value={this.state.preco} className="form-control" />
                             </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="form-group">
+                                <label>Fornecedor:*</label>
+                                <input type="text" name="fornecedor" onChange={this.onChange} value={this.state.fornecedor} className="form-control" />
+                            </div>
+                        </div>
 
+                    </div>
+                    <div className="row">
+                        <div className="col-md-1">
+                            <button type="submit" className="btn btn-success">{this.state.atualizando ? 'Atualizando ' : 'Salvar '}</button>
                         </div>
-                        <div className="row">
-                            <div className="col-md-1">
-                                <button type="submit" className="btn btn-success">{this.state.atualizando ? 'Atualizando ' : 'Salvar '}</button>
-                            </div>
-                            <div className="col-md-1">
-                                <button onClick={this.limpaCampos} className="btn btn-primary">Limpar</button>
-                            </div>
+                        <div className="col-md-1">
+                            <button onClick={this.limpaCampos} className="btn btn-primary">Limpar</button>
                         </div>
-                    </form>
-                </Card>
-            
+                    </div>
+                </form>
+            </Card>
+
         )
     }
 
